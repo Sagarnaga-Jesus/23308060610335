@@ -1,0 +1,47 @@
+{%extends "base.html"%}
+{%block contenido%}
+<div class="container" style="align-items: center; margin-top: 150px;">
+
+    <div class="card"  style="width: 90rem; height: 90rem;">
+        <div class="header">
+            <p class="fs-5">Calificador de Alimentos</p>
+        </div>
+
+        <div class="body">
+
+            <p>Añadir Nuevos Alimento</p>
+
+            <form action="/resultado" methods="POST">
+
+                <div class="row">
+                    <label>Nombre del Alimento:</label>
+                
+                    <input type="text" id="nombre" name="nombre" value="{{request.form.get('nombre','')}}">
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <label>Grasas</label>
+                        <input type="text" id="grasas" name="grasas" value="{{request.form.get('grasas','')}}">
+                    </div>
+
+                    <div class="col-2">
+                        <label>Proteinas</label>
+                        <input type="text" id="proteinas" name="proteinas" value="{{request.form.get('proteinas','')}}">
+                    </div>
+
+                    <div class="col-2">
+                        carbohidratos
+                        <input type="text" id="carbohidratos" name="carbohidratos" value="{{request.form.get('carbohidratos','')}}">
+                    </div>
+                </div>
+
+                <input class="submit" type="submit" value="Enviar y Registrar">
+
+            </form>
+            
+        </div>
+    </div>
+
+</div>
+{%endblock%}
