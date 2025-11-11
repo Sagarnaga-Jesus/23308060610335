@@ -19,7 +19,7 @@ def formulario():
 
 @app.route("/resultado",methods=["POST","GET"])
 def resultado():
-    if  request.method == ["POST"]:
+    if  request.method == "POST":
         nombre = request.form["alimento"]
         grasas = request.form["grasas"]
         prote = request.form["proteinas"]
