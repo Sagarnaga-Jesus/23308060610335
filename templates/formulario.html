@@ -1,47 +1,39 @@
-{%extends "base.html"%}
-{%block contenido%}
-<div class="container" style="align-items: center; margin-top: 150px;">
+{% extends "base.html" %}
 
-    <div class="card"  style="width: 90rem; height: 90rem;">
-        <div class="header">
-            <p class="fs-5">Calificador de Alimentos</p>
-        </div>
+{% block title %} Registrar alimentos {% endblock %} 
 
-        <div class="body">
+{% block contenido %}
 
-            <p>Añadir Nuevos Alimento</p>
+<h1 class="text-center fst-italic" style="margin-top: 20px;">Registremos tu alimentacion:</h1>
+    <div class="card mx-auto p-2 mb-3 shadow-lg bg-body-tertiary rounded-4 text-center border-success border-5 fs-5 fst-italic" style="width: 45rem; height: auto; margin-top: 40px;">
+    
+    <div class="card-header">
+        <h2>Registros alimenticio</h2>
+    <div>
+        <form method="POST" action="/resultado">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Alimento consumido hoy?</label>
+                <input type="text" class="form-control" id="alimento" name="alimento" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="calorias" class="form-label">Grasas g</label>
+                <input type="number" class="form-control" id="grasas" name="grasas">
+            </div>
+            <div class="mb-3">
+                <label for="macronutrientes" class="form-label">proteinas g </label>
+                <input type="number" class="form-control" id="proteinas" name="proteinas">
+            </div>
+            <div class="mb-3">
+                <label for="macronutrientes" class="form-label">Carbohidratos g</label>
+                <input type="number" class="form-control" id="carbohidratos" name="carbohidratos">
+            </div>
+            <div class="mb-3">
+                <label for="Agua" class="form-label">Cuantos litros de agua bebiste hoy?</label>
+                <input type="number" class="form-control" id="agua" name="agua">
+            </div>
 
-            <form action="/resultado" methods="POST">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
 
-                <div class="row">
-                    <label>Nombre del Alimento:</label>
-                
-                    <input type="text" id="nombre" name="nombre" value="{{request.form.get('nombre','')}}">
-                </div>
 
-                <div class="row">
-                    <div class="col-2">
-                        <label>Grasas</label>
-                        <input type="text" id="grasas" name="grasas" value="{{request.form.get('grasas','')}}">
-                    </div>
-
-                    <div class="col-2">
-                        <label>Proteinas</label>
-                        <input type="text" id="proteinas" name="proteinas" value="{{request.form.get('proteinas','')}}">
-                    </div>
-
-                    <div class="col-2">
-                        carbohidratos
-                        <input type="text" id="carbohidratos" name="carbohidratos" value="{{request.form.get('carbohidratos','')}}">
-                    </div>
-                </div>
-
-                <input class="submit" type="submit" value="Enviar y Registrar">
-
-            </form>
-            
-        </div>
-    </div>
-
-</div>
-{%endblock%}
+{% endblock %}

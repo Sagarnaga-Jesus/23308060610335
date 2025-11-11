@@ -1,38 +1,39 @@
 {%extends "base.html"%}
-{%block contenido%}
-<div class="container">
+{% block title%} Clasificador macronutrientes {% endblock %}
 
-    <div class="card">
-        <div class="header">
-            <p>Calificador de Alimentos</p>
-        </div>
+{% block contenido %}
 
-        <div class="body">
-                <div class="row">
-                    <label>Alimento</label>
-                    <p>{{nombre}}</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-2">
-                        <p>{{grasa}}</p>
-                    </div>
-
-                    <div class="col-2">
-                        <p>{{proteinas}}</p>
-                    </div>
-
-                    <div class="col-2">
-                        <p>{{carbohidratos}}</p>
-                    </div>
-                </div>
-
-            </button>
-
-            </form>
+<div class="container-fluid fst-italic align-items-center" style="margin-top: 30px; margin-bottom: 30px; ">
+<h3 class="text-center">Contador calorico</h3>
+<table class="table mx-auto p-2 mb-3 shadow-lg bg-body-tertiary rounded-4 text-center border-success border-5 fs-5 fst-italic" style="width: 45rem; height: auto; margin-top: 40px;">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Alimento</th>
+            <th scope="col">Calorias</th>
+            <th scope="col">Grasas</th>
+            <th scope="col">Macronutriente</th>
+            <th scope="col">Grasas calorico</th>
+            <th scope="col">proteinas calorico</th>
+            <th scope="col">Carbohidratos calorico</th>
+            <th scope="col">Agua</th>
             
-        </div>
-    </div>
-
+        </tr>
+    </thead>
+    <tbody>
+            {% for alimento in alimentos %}
+        <th scope="row">{{ loop.index }}</th>
+            <td class="table-info">{{alimento.nombre}}</td>
+            <td class="table-info">{{alimento.grasas}}</td>
+            <td class="table-info">{{alimento.proteinas}}</td>
+            <td class="table-info">{{alimento.carbohidratos}}</td>
+            <td class="table-info">{{alimento.grasasc}}</td>
+            <td class="table-info">{{alimento.proteinasc}}</td>
+            <td class="table-info">{{alimento.carbohidratosc}}</td>
+            <td class="table-info">{{alimento.agua}} L</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </div>
 {%endblock%}
